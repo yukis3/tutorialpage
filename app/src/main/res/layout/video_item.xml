@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="8dp">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <!-- 视频缩略图 -->
-    <ImageView
-        android:id="@+id/thumbnailImageView"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/sample_thumbnail" />
-
-    <!-- 视频标题 -->
+    <!-- 标题 -->
     <TextView
-        android:id="@+id/videoTitleTextView"
+        android:id="@+id/titleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Video Title"
-        android:textSize="16sp"
-        android:textColor="@android:color/black"
+        android:text="ElderAssist Video"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:padding="16dp"
         android:textStyle="bold" />
+
+    <!-- 视频 WebView -->
+    <WebView
+        android:id="@+id/youtubeWebView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
 </LinearLayout>

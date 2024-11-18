@@ -42,16 +42,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Search"
-            android:layout_marginStart="8dp" />
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"/>
     </LinearLayout>
 
-    <!-- Content Area for Videos (RecyclerView as a grid) -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ElderAssist Video"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:padding="16dp"
+        android:textStyle="bold" />
+
+    <!-- WebView 用于显示 YouTube 视频 -->
+    <WebView
+        android:id="@+id/youtubeWebView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="8dp"/>
+        android:layout_weight="1" />
 
     <!-- Footer Navigation Bar -->
     <LinearLayout
@@ -67,7 +77,7 @@
             android:id="@+id/homeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_menu_home"
+            android:src="@drawable/tempicon"
             android:contentDescription="Home"
             android:padding="8dp" />
 
@@ -75,7 +85,7 @@
             android:id="@+id/videosButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_menu_slideshow"
+            android:src="@drawable/tempicon"
             android:contentDescription="Videos"
             android:padding="8dp" />
 
@@ -83,7 +93,7 @@
             android:id="@+id/blogsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_menu_agenda"
+            android:src="@drawable/tempicon"
             android:contentDescription="Blogs"
             android:padding="8dp" />
 
@@ -91,7 +101,7 @@
             android:id="@+id/profileButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_menu_myplaces"
+            android:src="@drawable/tempicon"
             android:contentDescription="Profile"
             android:padding="8dp" />
 
@@ -99,9 +109,12 @@
             android:id="@+id/settingsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_menu_manage"
+            android:src="@drawable/tempicon"
             android:contentDescription="Settings"
             android:padding="8dp" />
+
+
+
     </LinearLayout>
 
 </LinearLayout>
