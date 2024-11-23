@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-
     <!-- Title Text (ElderAssist) Centered -->
     <TextView
         android:id="@+id/titleText"
@@ -46,22 +45,22 @@
             android:layout_marginLeft="8dp"/>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/titleTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ElderAssist Video"
-        android:gravity="center"
-        android:textSize="24sp"
-        android:padding="16dp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ElderAssist Video"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:padding="16dp"
+            android:textStyle="bold" />
 
-    <!-- WebView 用于显示 YouTube 视频 -->
-    <WebView
-        android:id="@+id/youtubeWebView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="vertical" />
 
     <!-- Footer Navigation Bar -->
     <LinearLayout
@@ -112,8 +111,6 @@
             android:src="@drawable/tempicon"
             android:contentDescription="Settings"
             android:padding="8dp" />
-
-
 
     </LinearLayout>
 
