@@ -17,6 +17,7 @@ import android.text.Editable
 class MainActivity : AppCompatActivity() {
     private lateinit var adapter: VideoAdapter
     private lateinit var recyclerView: RecyclerView
+    private var currentFontSize = 16f
     private val videoList = listOf(
         VideoItem("How to use Google Maps on Android phone to navigate", "Xo7yywC9iPk"),
         VideoItem("How To Use Google Maps! (Complete Beginners Guide)", "tui9hq9lfsU"),
@@ -37,9 +38,11 @@ class MainActivity : AppCompatActivity() {
         val searchBar = findViewById<EditText>(R.id.searchBar)
         val searchButton = findViewById<Button>(R.id.searchButton)
         recyclerView = findViewById(R.id.recyclerView)
+        val fontIncreaseButton = findViewById<Button>(R.id.fontIncreaseButton)
+        val fontDecreaseButton = findViewById<Button>(R.id.fontDecreaseButton)
 
         recyclerView.layoutManager = GridLayoutManager(this, 2)
-        adapter = VideoAdapter(filteredList) { videoId ->
+        adapter = VideoAdapter(filteredList, currentFontSize) { videoId ->
             val intent = Intent(this, VideoActivity::class.java)
             intent.putExtra("VIDEO_ID", videoId)
             startActivity(intent)
@@ -60,6 +63,19 @@ class MainActivity : AppCompatActivity() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
+
+        fontIncreaseButton.setOnClickListener {
+            currentFontSize += 2
+            adapter.updateFontSize(currentFontSize)
+        }
+
+        // 字体大小减小
+        fontDecreaseButton.setOnClickListener {
+            if (currentFontSize > 10) { // 防止字体过小
+                currentFontSize -= 2
+                adapter.updateFontSize(currentFontSize)
+            }
+        }
     }
     private fun filterVideos(query: String) {
         filteredList.clear()

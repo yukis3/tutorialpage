@@ -12,7 +12,8 @@ import com.bumptech.glide.Glide
 data class VideoItem(val title: String, val videoId: String)
 
 class VideoAdapter(
-    private val videoList: List<VideoItem>,
+    private var videoList: List<VideoItem>,
+    private var fontSize: Float,
     private val onVideoClick: (String) -> Unit
 ) : RecyclerView.Adapter<VideoAdapter.VideoViewHolder>() {
 
@@ -38,6 +39,7 @@ class VideoAdapter(
             .into(holder.thumbnail)
 
         holder.title.text = videoItem.title
+        holder.title.textSize = fontSize
         holder.itemView.setOnClickListener {
             onVideoClick(videoItem.videoId)
         }
@@ -49,4 +51,13 @@ class VideoAdapter(
         return videoList.size
     }
 
+    fun updateFontSize(newFontSize: Float) {
+        fontSize = newFontSize
+        notifyDataSetChanged()
+    }
+
+    fun updateData(newVideoList: List<VideoItem>) {
+        videoList = newVideoList
+        notifyDataSetChanged()
+    }
 }
